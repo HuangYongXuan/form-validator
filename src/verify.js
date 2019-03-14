@@ -21,5 +21,24 @@ export default {
         } else {
             callBack();
         }
+    },
+    valid (rules, value) {
+        let data = {
+            name: value
+        };
+        let dataRules = {
+            name: rules,
+        };
+
+        let v = Validator.make(data, dataRules);
+
+        if (v.fails()) {
+            let errors = v.getError('name');
+            if (errors && errors.length > 0) {
+                return new Error(errors[0]);
+            }
+        } else {
+            return true;
+        }
     }
 }
