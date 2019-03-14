@@ -1,6 +1,7 @@
 import Validator from './Validator/Validator';
 
 export default {
+    errors: [],
     verification({rules}, value, callBack) {
         if (rules === undefined) {
             callBack(new Error('缺少验证规则'));
@@ -16,6 +17,7 @@ export default {
         if (v.fails()) {
             let errors = v.getError('name');
             if (errors && errors.length > 0) {
+                this.errors = errors;
                 return callBack(new Error(errors[0]));
             }
         } else {
@@ -35,6 +37,7 @@ export default {
         if (v.fails()) {
             let errors = v.getError('name');
             if (errors && errors.length > 0) {
+                this.errors = errors;
                 return new Error(errors[0]);
             }
         } else {
