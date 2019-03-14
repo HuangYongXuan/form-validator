@@ -1,0 +1,15 @@
+{
+  "name": "form-validator",
+  "version": "1.0.0",
+  "description": "form data form validator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "validator",
+    "form"
+  ],
+  "author": "linhan <linhan060604@gmail.com>",
+  "license": "MIT"
+}
