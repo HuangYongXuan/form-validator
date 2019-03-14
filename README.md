@@ -11,3 +11,7 @@
         }
     }
     ```
+    
+* validator rule
+    
+    [laravel 5.6#validation](https://learnku.com/docs/laravel/5.6/validation/1372#c58a91)
