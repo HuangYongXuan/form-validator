@@ -3,6 +3,8 @@
 * use (element-ui)
 
     ```
+    import validator from 'el-form-validator';
+    
     rules: {
         column: {
             rules: 'required|min:11|max:11',
