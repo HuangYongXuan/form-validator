@@ -4,12 +4,21 @@
   "description": "form data form validator",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ysll233/form-validator.git"
   },
   "keywords": [
     "validator",
-    "form"
+    "form",
+    "laravel"
   ],
   "author": "linhan <linhan060604@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
+  }
 }
