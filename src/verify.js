@@ -2,6 +2,14 @@ import Validator from './Validator/Validator';
 
 export default {
     errors: [],
+
+    /**
+     *
+     * @param rules
+     * @param value
+     * @param callBack
+     * @returns {*}
+     */
     verification({rules}, value, callBack) {
         if (rules === undefined) {
             callBack(new Error('缺少验证规则'));
@@ -10,7 +18,7 @@ export default {
             name: value
         };
         let dataRules = {
-            name: rules,
+            name: rules
         };
         let v = Validator.make(data, dataRules);
 
@@ -24,12 +32,19 @@ export default {
             callBack();
         }
     },
-    valid (rules, value) {
+
+    /**
+     *
+     * @param rules
+     * @param value
+     * @returns {*}
+     */
+    valid(rules, value) {
         let data = {
             name: value
         };
         let dataRules = {
-            name: rules,
+            name: rules
         };
 
         let v = Validator.make(data, dataRules);
@@ -43,5 +58,15 @@ export default {
         } else {
             return true;
         }
+    },
+
+    /**
+     *
+     * @param data
+     * @param dataRules
+     * @returns {Validator}
+     */
+    make(data, dataRules) {
+        return Validator.make(data, dataRules);
     }
-}
+};
