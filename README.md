@@ -26,6 +26,22 @@
     validator.valid('required|max:10|min:6', '12') return error message
     ```
     
+    
+* make
+    ```$js
+    let data = [
+        name: ''
+        ...
+    ]
+    
+    let rules = [
+        name: 'required|max:10|min:6'
+        ...
+    ]
+    
+    validator.make(data, rules) return Validator
+    ```
+    
 * validator rule
     
     [laravel 5.6#validation](https://learnku.com/docs/laravel/5.6/validation/1372#c58a91)
