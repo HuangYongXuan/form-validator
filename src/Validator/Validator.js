@@ -93,12 +93,19 @@ export default class Validator {
             console.error('Unsupported type for item rule', itemRules);
         }
 
-        itemRules.forEach(function(ruleAndArgs) {
+        itemRules.forEach(function (ruleAndArgs) {
             if (ruleAndArgs.trim()) {
                 let args = ruleAndArgs.split(':');
+
+                let params = '';
+                if (args[0] === 'regex') {
+                    params = args[1]
+                } else {
+                    params = args[1] ? args[1].split(',') : [];
+                }
                 rules.push({
                     name: self.titleCase(args[0], '_'),
-                    params: args[1] ? args[1].split(',') : []
+                    params: params
                 });
             }
         });
