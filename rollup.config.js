@@ -3,12 +3,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import {uglify} from 'rollup-plugin-uglify';
 
 let babelOptions = {
-    presets: [
-        ['es2015', {'modules': false}]
-    ],
-    exclude: 'node_modules/**',
-    // plugins: ['external-helpers'],
-    // externalHelpers: true
+    exclude: 'node_modules/**'
 };
 
 let uglifyConfig = {
@@ -21,7 +16,7 @@ let uglifyConfig = {
 };
 
 export default {
-    entry: 'src/verify.js',
+    entry: 'src/main.js',
     format: 'cjs',
     dest: 'dist/index.js',
     plugins: [babel(babelOptions), resolve(), uglify(uglifyConfig)]
