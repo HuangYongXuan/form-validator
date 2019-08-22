@@ -50,4 +50,4 @@ validator.make(data, rules);
 
 ### validator rule
     
-    [laravel 5.6#validation](https://learnku.com/docs/laravel/5.6/validation/1372#c58a91)
+[laravel 5.8#validation](https://learnku.com/docs/laravel/5.8/validation/1372#c58a91)
