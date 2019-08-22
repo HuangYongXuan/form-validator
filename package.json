@@ -1,6 +1,6 @@
 {
   "name": "el-form-validator",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "form data form validator",
   "main": "dist/index.js",
   "scripts": {

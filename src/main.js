@@ -5,12 +5,14 @@ export default {
 
     /**
      *
-     * @param rules
-     * @param value
-     * @param callBack
+     * @param rules             {string}
+     * @param customMessages    {Array}
+     * @param customNames       {Object}
+     * @param value             {string}
+     * @param callBack          {function}
      * @returns {*}
      */
-    verification({rules}, value, callBack) {
+    verification({rules, customMessages = [], customNames}, value, callBack) {
         if (rules === undefined) {
             callBack(new Error('缺少验证规则'));
         }
@@ -20,7 +22,7 @@ export default {
         let dataRules = {
             name: rules
         };
-        let v = Validator.make(data, dataRules);
+        let v = Validator.make(data, dataRules, customMessages, customNames);
 
         if (v.fails()) {
             let errors = v.getError('name');
@@ -35,11 +37,13 @@ export default {
 
     /**
      *
-     * @param rules
-     * @param value
-     * @returns {*}
+     * @param rules             {string | Array}
+     * @param value             {string}
+     * @param customMessages    {Array}
+     * @param customNames       {Object}
+     * @returns {Error|boolean}
      */
-    valid(rules, value) {
+    valid(rules, value, customMessages = [], customNames) {
         let data = {
             name: value
         };
@@ -47,7 +51,7 @@ export default {
             name: rules
         };
 
-        let v = Validator.make(data, dataRules);
+        let v = Validator.make(data, dataRules, customMessages, customNames);
 
         if (v.fails()) {
             let errors = v.getError('name');
@@ -62,11 +66,13 @@ export default {
 
     /**
      *
-     * @param data
-     * @param dataRules
+     * @param data              {Object}
+     * @param dataRules         {Object}
+     * @param customMessages    {Array}
+     * @param customNames       {Object}
      * @returns {Validator}
      */
-    make(data, dataRules) {
-        return Validator.make(data, dataRules);
+    make(data, dataRules, customMessages = [], customNames) {
+        return Validator.make(data, dataRules, customMessages, customNames);
     }
 };
