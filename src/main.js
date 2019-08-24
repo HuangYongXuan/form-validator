@@ -28,7 +28,7 @@ export default {
             let errors = v.getError('name');
             if (errors && errors.length > 0) {
                 this.errors = errors;
-                return callBack(new Error(errors[0]));
+                return callBack(new Error(errors.shift()));
             }
         } else {
             callBack();
@@ -57,7 +57,7 @@ export default {
             let errors = v.getError('name');
             if (errors && errors.length > 0) {
                 this.errors = errors;
-                return new Error(errors[0]);
+                return new Error(errors.shift());
             }
         } else {
             return true;
