@@ -2,6 +2,6 @@ const Validator = require('../dist/index');
 
 console.info(Validator);
 
-Validator.valid('required|max:10|min:5|string', 123);
+let result = Validator.valid('required|max:10|string|min:5', 'abc', {string: '12344'});
 
 console.info(Validator.errors);

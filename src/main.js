@@ -1,7 +1,10 @@
 import Validator from './Validator/Validator';
 
-export default {
-    errors: [],
+class StaticValidator {
+    constructor() {
+        this.errors = [];
+        this.validator = null;
+    }
 
     /**
      *
@@ -10,30 +13,29 @@ export default {
      * @param customNames       {Object}
      * @param value             {string}
      * @param callBack          {function}
-     * @returns {*}
+     * @return {*}
      */
-    verification({rules, customMessages = [], customNames}, value, callBack) {
-        if (rules === undefined) {
-            callBack(new Error('缺少验证规则'));
+    verification({rules, customMessages = {}, customNames}, value, callBack) {
+        if (typeof rules !== 'string' && Array.isArray(rules) === false) {
+            return callBack();
         }
         let data = {
             name: value
         };
-        let dataRules = {
+        rules = {
             name: rules
         };
-        let v = Validator.make(data, dataRules, customMessages, customNames);
 
-        if (v.fails()) {
-            let errors = v.getError('name');
-            if (errors && errors.length > 0) {
-                this.errors = errors;
-                return callBack(new Error(errors.shift()));
+        this.validator = Validator.make(data, rules, customMessages, customNames);
+
+        if (!this.validator.fails()) {
+            this.errors = this.validator.getError('name');
+            if (this.errors  && this.errors .length > 0) {
+                return callBack(new Error(this.errors[0]));
             }
-        } else {
-            callBack();
         }
-    },
+        return callBack();
+    }
 
     /**
      *
@@ -51,18 +53,17 @@ export default {
             name: rules
         };
 
-        let v = Validator.make(data, dataRules, customMessages, customNames);
+        this.validator = Validator.make(data, dataRules, customMessages, customNames);
 
-        if (v.fails()) {
-            let errors = v.getError('name');
-            if (errors && errors.length > 0) {
-                this.errors = errors;
-                return new Error(errors.shift());
+        if (this.validator.fails()) {
+            this.errors  = this.validator.getError('name');
+            if (this.errors  && this.errors .length > 0) {
+                return new Error(this.errors[0]);
             }
         } else {
             return true;
         }
-    },
+    }
 
     /**
      *
@@ -75,4 +76,6 @@ export default {
     make(data, dataRules, customMessages = [], customNames) {
         return Validator.make(data, dataRules, customMessages, customNames);
     }
-};
+}
+
+export default new StaticValidator();
