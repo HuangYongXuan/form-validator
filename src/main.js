@@ -28,7 +28,7 @@ class StaticValidator {
 
         this.validator = Validator.make(data, rules, customMessages, customNames);
 
-        if (!this.validator.fails()) {
+        if (this.validator.fails()) {
             this.errors = this.validator.getError('name');
             if (this.errors  && this.errors .length > 0) {
                 return callBack(new Error(this.errors[0]));
