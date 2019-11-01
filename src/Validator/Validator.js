@@ -56,7 +56,7 @@ class Validator {
 		];
 	}
 
-	static make(data, rules, customMessages = [], customNames) {
+	static make(data, rules, customMessages = {}, customNames) {
 		return new Validator(data, rules, customMessages, customNames);
 	}
 

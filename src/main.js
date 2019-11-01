@@ -72,11 +72,11 @@ class StaticValidator {
 	 *
 	 * @param data              {Object}
 	 * @param dataRules         {Object}
-	 * @param customMessages    {Array}
+	 * @param customMessages    {Object}
 	 * @param customNames       {Object}
 	 * @returns {Validator}
 	 */
-	make(data, dataRules, customMessages = [], customNames) {
+	make(data, dataRules, customMessages = {}, customNames) {
 		return Validator.make(data, dataRules, customMessages, customNames);
 	}
 }
