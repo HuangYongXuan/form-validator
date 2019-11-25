@@ -1,6 +1,6 @@
 {
   "name": "el-form-validator",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "license": "MIT",
   "description": "form data form validator",
   "main": "dist/index.js",
