@@ -559,8 +559,12 @@ class Validator {
         let re = params[0];
 
         if (!(re instanceof RegExp)) {
-            re = re.split('/');
-            re = new RegExp(re[1], re[2]);
+            if (re.indexOf('/') === 0) {
+                re = re.split('/');
+                re = new RegExp(re[1], re[2]);
+            } else {
+                re = new RegExp(re, '');
+            }
         }
 
         return re.test(value);
