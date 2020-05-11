@@ -52,6 +52,7 @@ export default {
     },
     not_in: '已选的属性 非法。',
     numeric: '必须是一个数字。',
+    decimal: '最多只能 :decimal 位小数',
     present: '必须存在。',
     regex: '格式不正确。',
     required: '不能为空。',

@@ -102,7 +102,7 @@ class Validator {
 
         if (!Array.isArray(itemRules)) {
             console.error('Unsupported type for item rule', itemRules);
-            return rules
+            return rules;
         }
 
         itemRules.forEach(function (ruleAndArgs) {
@@ -324,7 +324,6 @@ class Validator {
         let value = this.getValue(name);
         let method = this.findRuleMethod(rule);
 
-        // return method.apply(this, [name, value, rule.params])
         if (!method.apply(this, [name, value, rule.params])) {
             this.addFailure(name, rule);
         }
@@ -735,6 +734,16 @@ class Validator {
         return this.validateMatch(name, value, /^([a-z0-9_\-])+$/i);
     }
 
+    validateDecimal(name, value, params = []) {
+        this.requireParameterCount(1, params, 'decimal');
+        let size = params[0];
+        let regx = `^[-]{0,1}[0-9]+(\.[0-9]{1,3})?$`;
+
+        let re = new RegExp(regx, 'ig');
+
+        return re.test(value);
+    }
+
     validateBefore(name, value, params) {
         this.requireParameterCount(1, params, 'before');
 
@@ -993,6 +1002,10 @@ class Validator {
 
     replaceSame(msg, name, rule, params) {
         return this.strReplace(':other', name, msg);
+    }
+
+    replaceDecimal(msg, name, rule, params) {
+        return this.strReplace(':decimal', params, msg);
     }
 
     replaceSize(msg, name, rule, params) {
