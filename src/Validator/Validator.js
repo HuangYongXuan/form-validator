@@ -737,7 +737,7 @@ class Validator {
     validateDecimal(name, value, params = []) {
         this.requireParameterCount(1, params, 'decimal');
         let size = params[0];
-        let regx = `^[-]{0,1}[0-9]+(\.[0-9]{1,3})?$`;
+        let regx = `^[-]{0,1}[0-9]+(\.[0-9]{1,${size}})?$`;
 
         let re = new RegExp(regx, 'ig');
 
