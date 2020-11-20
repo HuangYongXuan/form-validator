@@ -5,7 +5,7 @@ export default {
     after_or_equal: '必须要等于 :date 或更晚。',
     alpha: '只能由字母组成。',
     alpha_dash: '只能由字母、数字和斜杠组成。',
-    alpha_num: '只能由字母和数字组成。',
+    alpha_num: '只能包含字母和数字。',
     array: '必须是一个数组。',
     before: '必须要早于 :date。',
     before_or_equal: '必须要等于 :date 或更早。',
