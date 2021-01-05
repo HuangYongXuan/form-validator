@@ -4,6 +4,7 @@ class Validator {
     constructor(data, rules, customMessages = {}, customNames = {}) {
         this.setData(data);
         this.rules = this.parseRules(rules);
+		console.info(this.rules);
         this.failedRules = [];
         this.errors = null;
         this.customRules = {};
@@ -82,11 +83,10 @@ class Validator {
 
         for (let key in rules) {
             let rule = rules[key];
-            if (!rule || !Array.isArray(rule)) continue;
-            arr.push({
-                name: key,
-                rules: self.parseItemRules(rule)
-            });
+            if (typeof rule !== 'string' && !Array.isArray(rule)) {
+            	continue;
+			}
+            arr.push({name: key, rules: self.parseItemRules(rule)});
         }
 
         return arr;

@@ -5,7 +5,7 @@ let data = {
 };
 
 let rules = {
-    name: ['required', 'numeric', 'min:0', 'max:10', 'decimal:3']
+    name: 'required|integer|min:0|max:8'
 };
 
 let v = Validator.make(data, rules, {}, {});

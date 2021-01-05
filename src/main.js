@@ -8,8 +8,8 @@ class StaticValidator {
 
 	/**
 	 *
-	 * @param rules             {String}
-	 * @param customMessages    {Array}
+	 * @param rules             {String|Object}
+	 * @param customMessages    {Object}
 	 * @param customNames       {Object}
 	 * @param messages          {String}
 	 * @param value             {String}
