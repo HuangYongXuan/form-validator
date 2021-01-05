@@ -4,7 +4,6 @@ class Validator {
     constructor(data, rules, customMessages = {}, customNames = {}) {
         this.setData(data);
         this.rules = this.parseRules(rules);
-		console.info(this.rules);
         this.failedRules = [];
         this.errors = null;
         this.customRules = {};
