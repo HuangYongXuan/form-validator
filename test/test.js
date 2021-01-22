@@ -2,7 +2,7 @@ const Validator = require('../dist/index');
 
 function testValidatorIp() {
     let data = {
-        name: '10.233.12.12'
+        name: '1.1.1.11A'
     };
 
     let rules = {

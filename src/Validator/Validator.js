@@ -709,6 +709,10 @@ class Validator {
 
 		if (
 			segments.length === 4 &&
+			this.validateInteger(name, segments[0]) &&
+			this.validateInteger(name, segments[1]) &&
+			this.validateInteger(name, segments[2]) &&
+			this.validateInteger(name, segments[3]) &&
 			this.validateBetween(name, parseInt(segments[0]), [1, 255]) &&
 			this.validateBetween(name, parseInt(segments[1]), [0, 255]) &&
 			this.validateBetween(name, parseInt(segments[2]), [0, 255]) &&
