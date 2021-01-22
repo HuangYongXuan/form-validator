@@ -39,8 +39,5 @@
     "rollup-plugin-node-resolve": "^4.2.4",
     "rollup-plugin-uglify": "^6.0.2",
     "rollup-watch": "^2.4.0"
-  },
-  "dependencies": {
-    "el-form-validator": "^1.2.3"
   }
 }
