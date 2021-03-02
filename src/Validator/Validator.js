@@ -1,7 +1,7 @@
 import messages from './Messages';
 
 class Validator {
-	constructor(data, rules, customMessages = {}, customNames = {}) {
+	constructor(data, rules, customMessages = {}, customNames = {}, messageCallback = undefined) {
 		this.setData(data);
 		this.rules = this.parseRules(rules);
 		this.failedRules = [];
@@ -10,6 +10,7 @@ class Validator {
 		this.customMessages = customMessages;
 		this.customNames = customNames;
 		this.customValues = {};
+		this.messageCallback = messageCallback
 	}
 
 	get dateRules() {
@@ -56,8 +57,8 @@ class Validator {
 		];
 	}
 
-	static make(data, rules, customMessages = {}, customNames) {
-		return new Validator(data, rules, customMessages, customNames);
+	static make(data, rules, customMessages = {}, customNames, callback = undefined) {
+		return new Validator(data, rules, customMessages, customNames, callback);
 	}
 
 	extend(ruleName, callback, customMessage) {
@@ -82,6 +83,9 @@ class Validator {
 
 		for (let key in rules) {
 			let rule = rules[key];
+			if (typeof rule === 'string') {
+				rule = rule.split('|')
+			}
 			if (typeof rule !== 'string' && !Array.isArray(rule)) {
 				continue;
 			}
@@ -270,6 +274,10 @@ class Validator {
 		if (typeof msg === 'object') {
 			let subtype = this.getDataType(name);
 			msg = messages[key][subtype];
+		}
+
+		if (this.messageCallback instanceof Function) {
+			msg = this.messageCallback(msg)
 		}
 
 		return typeof msg === 'undefined' ? '' : msg;

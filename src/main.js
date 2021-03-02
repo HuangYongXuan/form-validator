@@ -7,7 +7,7 @@ class StaticValidator {
 	}
 
 	/**
-	 *
+	 * el
 	 * @param rules             {String|Object}
 	 * @param customMessages    {Object}
 	 * @param customNames       {Object}
@@ -46,9 +46,10 @@ class StaticValidator {
 	 * @param value             {string}
 	 * @param customMessages    {Array}
 	 * @param customNames       {Object}
+	 * @param callback			{function}
 	 * @returns {Error|boolean}
 	 */
-	valid(rules, value, customMessages = [], customNames) {
+	valid(rules, value, customMessages = [], customNames, callback) {
 		let data = {
 			name: value
 		};
@@ -56,7 +57,7 @@ class StaticValidator {
 			name: rules
 		};
 
-		this.validator = Validator.make(data, dataRules, customMessages, customNames);
+		this.validator = Validator.make(data, dataRules, customMessages, customNames, callback);
 
 		if (this.validator.fails()) {
 			this.errors = this.validator.getError('name');
@@ -74,10 +75,11 @@ class StaticValidator {
 	 * @param dataRules         {Object}
 	 * @param customMessages    {Object}
 	 * @param customNames       {Object}
+	 * @param callback       	{function}
 	 * @returns {Validator}
 	 */
-	make(data, dataRules, customMessages = {}, customNames) {
-		return Validator.make(data, dataRules, customMessages, customNames);
+	make(data, dataRules, customMessages = {}, customNames, callback) {
+		return Validator.make(data, dataRules, customMessages, customNames, callback);
 	}
 }
 
