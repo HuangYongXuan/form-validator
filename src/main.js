@@ -1,6 +1,6 @@
-import Validator from './Validator/Validator';
+import validator from './Validator/Validator';
 
-class StaticValidator {
+export class StaticValidator {
 	constructor() {
 		this.errors = [];
 		this.validator = null;
@@ -27,7 +27,7 @@ class StaticValidator {
 			name: rules
 		};
 
-		this.validator = Validator.make(data, rules, customMessages, customNames);
+		this.validator = validator.make(data, rules, customMessages, customNames);
 
 		if (this.validator.fails()) {
 			this.errors = this.validator.getError('name');
@@ -49,7 +49,7 @@ class StaticValidator {
 	 * @param callback			{function}
 	 * @returns {Error|boolean}
 	 */
-	valid(rules, value, customMessages = [], customNames, callback) {
+	valid(rules, value, customMessages = {}, customNames , callback) {
 		let data = {
 			name: value
 		};
@@ -57,7 +57,7 @@ class StaticValidator {
 			name: rules
 		};
 
-		this.validator = Validator.make(data, dataRules, customMessages, customNames, callback);
+		this.validator = validator.make(data, dataRules, customMessages, customNames, callback);
 
 		if (this.validator.fails()) {
 			this.errors = this.validator.getError('name');
@@ -79,8 +79,10 @@ class StaticValidator {
 	 * @returns {Validator}
 	 */
 	make(data, dataRules, customMessages = {}, customNames, callback) {
-		return Validator.make(data, dataRules, customMessages, customNames, callback);
+		return validator.make(data, dataRules, customMessages, customNames, callback);
 	}
 }
+
+export class Validator extends validator{}
 
 export default new StaticValidator();

@@ -1,6 +1,6 @@
 import messages from './Messages';
 
-class Validator {
+export class Validator {
 	constructor(data, rules, customMessages = {}, customNames = {}, messageCallback = undefined) {
 		this.setData(data);
 		this.rules = this.parseRules(rules);

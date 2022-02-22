@@ -13,5 +13,9 @@ export default {
 		format: 'cjs',
 		file: 'dist/index.js'
 	},
-	plugins: [babel(babelOptions), resolve()]
+	plugins: [
+		babel(babelOptions),
+		terser({ compress: { drop_console: true } }),
+		resolve()
+	]
 };

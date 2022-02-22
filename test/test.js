@@ -1,4 +1,4 @@
-const Validator = require('../dist/index');
+const Validator = require('../dist/index').default;
 
 function testValidatorIp() {
 	let data = {
