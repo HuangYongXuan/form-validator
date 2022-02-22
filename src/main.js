@@ -16,7 +16,7 @@ class StaticValidator {
 	 * @param callBack          {function}
 	 * @return {*}
 	 */
-	verification({rules, customMessages = {}, customNames, messages}, value, callBack) {
+	verification({rules, customMessages = {}, customNames={}, messages = undefined}, value, callBack) {
 		if (typeof rules !== 'string' && Array.isArray(rules) === false) {
 			return callBack();
 		}
