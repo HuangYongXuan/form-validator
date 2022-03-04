@@ -693,7 +693,7 @@ export class Validator {
 	}
 
 	validateNumeric(name, value) {
-		return this.validateMatch(name, value, /^-?\d+(\.\d*)?$/);
+		return this.validateMatch(name, value, /^-?\d+(\.\d{1,})?$/);
 	}
 
 	validateInteger(name, value) {

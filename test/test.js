@@ -2,13 +2,12 @@ const Validator = require('../dist/index').default;
 
 function testValidatorIp() {
 	let data = {
-		name: '1.1.1.11A',
+		name: '0.123',
 		array: [1, 2, 3, 4]
 	};
 
 	let rules = {
-		name: ['required', 'ip'],
-		array: 'required|array|min:2|max:3'
+		name: ['nullable', 'numeric', 'min:0', 'max: 100', 'decimal:2'],
 	};
 
 	let v = Validator.make(data, rules, {}, {}, (msg) => {
