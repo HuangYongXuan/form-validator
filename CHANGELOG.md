@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.3](https://github.com/Ysll233/form-validator/compare/v2.1.2...v2.1.3) (2022-03-04)
+
+
+### Bug Fixes
+
+* 修复数字验证0.的问题 ([b974f5b](https://github.com/Ysll233/form-validator/commit/b974f5b45a4698ddb9eee914fd742463f45305bd))
+
 ### [2.1.2](https://github.com/Ysll233/form-validator/compare/v2.1.1...v2.1.2) (2022-02-22)
 
 
