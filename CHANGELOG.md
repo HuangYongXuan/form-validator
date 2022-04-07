@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.4](https://github.com/Ysll233/form-validator/compare/v2.1.3...v2.1.4) (2022-04-07)
+
+
+### Bug Fixes
+
+* 修复参数值为null的时候 getSize 方法报错 ([fd1aa55](https://github.com/Ysll233/form-validator/commit/fd1aa55f75824a21cd2274955bb01c7b75b5b795))
+
 ### [2.1.3](https://github.com/Ysll233/form-validator/compare/v2.1.2...v2.1.3) (2022-03-04)
 
 
