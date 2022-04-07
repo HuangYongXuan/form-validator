@@ -630,7 +630,6 @@ export class Validator {
 
 	validateSize(name, value, params) {
 		this.requireParameterCount(1, params, 'size');
-
 		return this.getSize(name, value) === parseInt(params[0]);
 	}
 
@@ -664,7 +663,7 @@ export class Validator {
 			return value;
 		}
 		// for array and string
-		return value.length;
+		return value ? value.length : 0;
 	}
 
 	validateIn(name, value, params) {
