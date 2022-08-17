@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.6](https://github.com/Ysll233/form-validator/compare/v2.1.4...v2.1.6) (2022-08-17)
+
+
+### Bug Fixes
+
+* regex无法使用"{,}"的格式 ([a72f7a7](https://github.com/Ysll233/form-validator/commit/a72f7a78cf948e87d812096086785a479cfe69bb))
+
 ### [2.1.4](https://github.com/Ysll233/form-validator/compare/v2.1.3...v2.1.4) (2022-04-07)
 
 
