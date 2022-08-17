@@ -99,10 +99,10 @@ export class Validator {
 		let self = this;
 		let rules = [];
 
+
 		if (typeof itemRules === 'string') {
 			itemRules = itemRules.split('|');
 		}
-
 		if (!Array.isArray(itemRules)) {
 			console.error('Unsupported type for item rule', itemRules);
 			return rules;
@@ -116,10 +116,17 @@ export class Validator {
 
 			if (ruleAndArgs.trim()) {
 				let args = ruleAndArgs.split(':');
-				rules.push({
-					name: self.titleCase(args[0], '_'),
-					params: args[1] ? args[1].split(',') : []
-				});
+				if (args[0] === 'regex') {
+					rules.push({
+						name: self.titleCase(args[0], '_'),
+						params: args[1]
+					});
+				} else {
+					rules.push({
+						name: self.titleCase(args[0], '_'),
+						params: args[1] ? args[1].split(',') : []
+					});
+				}
 			}
 		});
 
