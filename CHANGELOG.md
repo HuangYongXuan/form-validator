@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/Ysll233/form-validator/compare/v2.1.6...v2.2.0) (2023-07-20)
+
+
+### Features
+
+* errorCellMessage params ([0a3ae48](https://github.com/Ysll233/form-validator/commit/0a3ae4830efa3c9fdd5c953e49036bc787221657))
+
 ### [2.1.6](https://github.com/Ysll233/form-validator/compare/v2.1.4...v2.1.6) (2022-08-17)
 
 
