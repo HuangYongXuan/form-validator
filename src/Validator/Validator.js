@@ -276,15 +276,16 @@ export class Validator {
 
 		// 2) then, use the default message for that rule, and re-test
 		msg = messages[key];
+		let subtype
 
 		// 3) check if the message has subtype
 		if (typeof msg === 'object') {
-			let subtype = this.getDataType(name);
+			subtype = this.getDataType(name);
 			msg = messages[key][subtype];
 		}
 
 		if (this.messageCallback instanceof Function) {
-			msg = this.messageCallback(msg)
+			msg = this.messageCallback(msg, {method: key, subtype, rule, name})
 		}
 
 		return typeof msg === 'undefined' ? '' : msg;

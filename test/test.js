@@ -2,14 +2,15 @@ const Validator = require('../dist/index').default;
 
 function testValidatorIp() {
 	let data = {
-		name: 'abc',
+		name: '',
 	};
 
 	let rules = {
-		name: ['required', 'regex:/^[a-zA-Z]{1}[A-Za-z0-9_\\-]{1,}$/'],
+		name: ['required', 'max:10', 'min:2'],
 	};
 
-	let v = Validator.make(data, rules, {}, {}, (msg) => {
+	let v = Validator.make(data, rules, {}, {}, (msg, params) => {
+		console.info(msg, params);
 		return msg;
 	});
 
