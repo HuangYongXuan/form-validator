@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/Ysll233/form-validator/compare/v2.2.0...v2.3.0) (2024-09-29)
+
+
+### Features
+
+* 增加了新的功能 ([f085935](https://github.com/Ysll233/form-validator/commit/f085935a2cc83f02fb434a76ba980c492e6bb9cc))
+
 ## [2.2.0](https://github.com/Ysll233/form-validator/compare/v2.1.6...v2.2.0) (2023-07-20)
 
 
